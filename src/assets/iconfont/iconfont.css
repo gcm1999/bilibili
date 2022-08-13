@@ -1,0 +1,87 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3586513 */
+  src: url('iconfont.woff2?t=1660395380291') format('woff2'),
+       url('iconfont.woff?t=1660395380291') format('woff'),
+       url('iconfont.ttf?t=1660395380291') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-shouye1:before {
+  content: "\e621";
+}
+
+.icon-lishi:before {
+  content: "\e608";
+}
+
+.icon-huiyuan:before {
+  content: "\e65d";
+}
+
+.icon-shangchuan:before {
+  content: "\e611";
+}
+
+.icon-xiazai:before {
+  content: "\e600";
+}
+
+.icon-huiyuanqia:before {
+  content: "\e886";
+}
+
+.icon-bilibili:before {
+  content: "\e6b4";
+}
+
+.icon-chuangzuozhongxin:before {
+  content: "\e6bc";
+}
+
+.icon-yunshangchuan:before {
+  content: "\eb2c";
+}
+
+.icon-icon_bilibili-circle:before {
+  content: "\e601";
+}
+
+.icon-icon_bilibili-square:before {
+  content: "\e602";
+}
+
+.icon-bilibili1:before {
+  content: "\e609";
+}
+
+.icon-shouye:before {
+  content: "\e630";
+}
+
+.icon-lishixiao:before {
+  content: "\e8bd";
+}
+
+.icon-shoucang:before {
+  content: "\eca7";
+}
+
+.icon-pindao:before {
+  content: "\e693";
+}
+
+.icon-remen:before {
+  content: "\e8c9";
+}
+
+.icon-dongtai:before {
+  content: "\e62d";
+}
+
