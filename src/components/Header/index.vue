@@ -1,7 +1,7 @@
 <template>
-  <div class="header" :class="{ bigImg: show }" @click.self="bigImg">
+  <div class="header" :class="{ bigImg: data.show }" @click.self="bigImg">
     <h1>Header</h1>
-    <div class="nav" v-show="!show">
+    <div class="nav" v-show="!data.show">
       <div class="nav-left">
         <ul class="iconfont">
           <li class="icon-bilibili1">首页</li>
@@ -62,18 +62,34 @@
   </div>
 </template>
 <script>
+import { reactive } from "vue";
+
 export default {
   name: "Header",
-  data() {
-    return {
+  setup() {
+    let data = reactive({
       show: false,
+    });
+
+    function bigImg() {
+      data.show = !data.show;
+    }
+
+    return {
+      data,
+      bigImg,
     };
   },
-  methods: {
-    bigImg() {
-      this.show = !this.show;
-    },
-  },
+  // data() {
+  //   return {
+  //     show: false,
+  //   };
+  // },
+  // methods: {
+  //   bigImg() {
+  //     this.show = !this.show;
+  //   },
+  // },
 };
 </script>
 <style scoped>
@@ -186,14 +202,14 @@ export default {
   border-radius: 8px;
 }
 .nav-search .search-input:hover,
-.nav-search .search-input:focus{
+.nav-search .search-input:focus {
   background-color: white;
 }
 
 .nav-search input {
   border: 5px solid rgb(238, 240, 240);
   border-radius: 5px;
-  margin:0 10px;
+  margin: 0 10px;
   width: 410px;
   height: 20px;
   font-size: 14px;
@@ -210,7 +226,7 @@ export default {
 }
 
 .nav-search input:focus {
-  background-color: rgb(219,219,223);
-  border:5px solid rgb(219,219,223);
+  background-color: rgb(219, 219, 223);
+  border: 5px solid rgb(219, 219, 223);
 }
 </style>
