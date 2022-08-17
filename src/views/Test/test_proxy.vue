@@ -1,5 +1,10 @@
 <template>
   <h1>proxy</h1>
+  <div class="input">
+    <div class="tanchu">{{ data.msg }}</div>
+    <input type="text" name="" id="" v-model="data.msg" />
+  </div>
+
   <h3>名字:{{ data.name }}</h3>
   <h3>年龄:{{ data.age }}</h3>
   <h3>爱好:{{ data.hobby }}</h3>
@@ -14,6 +19,7 @@ export default {
   setup() {
     let data = reactive({
       flag: true,
+      msg: "",
       name: "gcm",
       age: 22,
       hobby: ["抽烟", "喝酒", "烫头"],
@@ -28,6 +34,8 @@ export default {
       },
     });
 
+    // let msg = "";
+
     function changeInfo() {
       data.flag
         ? ((data.name = "郭晨明"),
@@ -41,4 +49,26 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+.input {
+  position: relative;
+}
+.tanchu {
+  min-width: 100px;
+  position: absolute;
+  background-color: pink;
+  top: -55px;
+  font-size: 36px;
+  border-radius: 5px;
+  opacity: 0.8;
+}
+.tanchu::after {
+  content: "";
+  border-top: 5px solid pink;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  position: absolute;
+  top: 100%;
+  left: 50px;
+}
+</style>

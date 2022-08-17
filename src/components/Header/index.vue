@@ -17,9 +17,27 @@
       </div>
 
       <div class="nav-search">
-        <div class="search-input">
-          <input type="text" placeholder="郭晨明成为世界首富" />
+        <div class="search" ref="search">
+          <input
+            class="search-input"
+            type="text"
+            placeholder="郭晨明成为世界首富"
+            ref="searchInput"
+          />
           <img class="search-img" src="./images/sousuo.png" alt="" />
+          <div class="search-history" ref="searchHistory" v-show="historyShow">
+            <div class="history-header">
+              <span>搜索历史</span>
+              <span>清空</span>
+            </div>
+            <ul>
+              <li>js实现背景音乐</li>
+              <li>前端大牛郭晨明</li>
+              <li>虚拟dom</li>
+              <li>defineproporty</li>
+              <li>vuex getter</li>
+            </ul>
+          </div>
         </div>
         <div></div>
       </div>
@@ -69,6 +87,7 @@ export default {
   setup() {
     let data = reactive({
       show: false,
+      historyShow: false,
     });
 
     function bigImg() {
@@ -79,6 +98,23 @@ export default {
       data,
       bigImg,
     };
+  },
+  mounted() {
+    console.log(this.$refs);
+    // let {"search","searchInput","searchHistory"} = this.$refs
+    let search = this.$refs.search;
+    let searchHistory = this.$refs.searchHistory;
+    let searchInput = this.$refs.searchInput;
+    console.log(searchInput);
+    searchInput.addEventListener("focus", () => {
+      // data.historyShow = true;
+      searchHistory.style.display = "block";
+      search.style.borderRadius = "5px 5px 0 0";
+    });
+    searchInput.addEventListener("blur", () => {
+      searchHistory.style.display = "none";
+      search.style.borderRadius = "5px";
+    });
   },
   // data() {
   //   return {
@@ -191,7 +227,8 @@ export default {
   line-height: 50px;
 }
 
-.nav-search .search-input {
+.nav-search .search {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -201,8 +238,34 @@ export default {
   background-color: rgb(238, 240, 240);
   border-radius: 8px;
 }
-.nav-search .search-input:hover,
-.nav-search .search-input:focus {
+.nav-search .search-history {
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  min-height: 300px;
+  top: 100%;
+}
+.history-header {
+  display: flex;
+  font-size: 12px;
+  justify-content: space-between;
+  padding: 0 12px;
+}
+.history-header span:nth-of-type(1) {
+  color: #ccc;
+}
+.history-header span:nth-of-type(2) {
+  color: rgb(30, 128, 255);
+}
+.search-history ul li {
+  font-size: 14px;
+  padding: 0 10px;
+}
+.search-history ul li:hover {
+  background-color: rgb(239, 242, 245);
+}
+.nav-search .search:hover,
+.nav-search .search:focus {
   background-color: white;
 }
 
