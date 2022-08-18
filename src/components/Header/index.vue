@@ -25,7 +25,7 @@
             ref="searchInput"
           />
           <img class="search-img" src="./images/sousuo.png" alt="" />
-          <div class="search-history" ref="searchHistory" v-show="historyShow">
+          <div class="search-history" ref="searchHistory">
             <div class="history-header">
               <span>搜索历史</span>
               <span>清空</span>
@@ -87,7 +87,7 @@ export default {
   setup() {
     let data = reactive({
       show: false,
-      historyShow: false,
+      // historyShow: true,
     });
 
     function bigImg() {
@@ -100,12 +100,12 @@ export default {
     };
   },
   mounted() {
-    console.log(this.$refs);
+    // console.log(this.$refs);
     // let {"search","searchInput","searchHistory"} = this.$refs
     let search = this.$refs.search;
     let searchHistory = this.$refs.searchHistory;
     let searchInput = this.$refs.searchInput;
-    console.log(searchInput);
+    // console.log(searchInput);
     searchInput.addEventListener("focus", () => {
       // data.historyShow = true;
       searchHistory.style.display = "block";
@@ -244,6 +244,7 @@ export default {
   width: 100%;
   min-height: 300px;
   top: 100%;
+  display: none;
 }
 .history-header {
   display: flex;

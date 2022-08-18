@@ -1,15 +1,17 @@
 <template>
-  <h1>proxy</h1>
-  <div class="input">
-    <div class="tanchu">{{ data.msg }}</div>
-    <input type="text" name="" id="" v-model="data.msg" />
-  </div>
+  <div class="proxy">
+    <h1>proxy</h1>
+    <div class="input">
+      <div class="tanchu">{{ data.msg }}</div>
+      <input type="text" name="" id="" v-model="data.msg" />
+    </div>
 
-  <h3>名字:{{ data.name }}</h3>
-  <h3>年龄:{{ data.age }}</h3>
-  <h3>爱好:{{ data.hobby }}</h3>
-  <h3>baby:{{ data.baby }}</h3>
-  <button @click="changeInfo">更改个人信息</button>
+    <h3>名字:{{ data.name }}</h3>
+    <h3>年龄:{{ data.age }}</h3>
+    <h3>爱好:{{ data.hobby }}</h3>
+    <h3>baby:{{ data.baby }}</h3>
+    <button @click="changeInfo">更改个人信息</button>
+  </div>
 </template>
 <script>
 import { reactive } from "vue";
@@ -50,6 +52,12 @@ export default {
 };
 </script>
 <style scoped>
+.proxy{
+  background-color: pink;
+  margin: 10px 0;
+  padding: 10px 0;
+  font-size: 16px;
+}
 .input {
   position: relative;
 }
