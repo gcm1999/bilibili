@@ -9,7 +9,7 @@
   </div>
 </template>
 <script>
-import { toRef, ref, reactive, watch, watchEffect } from "vue";
+import { toRefs, toRef, ref, reactive, watch, watchEffect } from "vue";
 
 export default {
   name: "TestToRef",
@@ -24,10 +24,15 @@ export default {
       },
     });
 
-    let name = toRef(data, "name");
-    let age = toRef(data, "age");
+    // let name = toRef(data, "name");
+    // let age = toRef(data, "age");
+    console.log(ref("gcm"));
+    console.log(data.name);
+    console.log(toRef(data, "name"));
+    console.log(data);
+    console.log(toRefs(data));
 
-    return { data, name, age };
+    return { data, ...toRefs(data) };
   },
 };
 </script>
